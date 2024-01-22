@@ -1,25 +1,50 @@
-*, ::after, ::before {
+<body>
+<header>
+        <nav>
+            <a href="../../index.php">Home</a>
+            <a href="#">Shop</a>
+            <a href="../../signup.php">Signup</a>
+            <a href="#">Location</a>
+            <a href="#">Contact</a>
+        </nav>
+        <button type="button" aria-label="toggle curtain navigation" class="nav-toggler">
+            <span class="line l1"></span>
+            <span class="line l2"></span>
+            <span class="line l3"></span>
+        </button>
+        <a href="./panier.php"> 
+            <img src="./img/shopping-basket.png" class="panier" alt="">
+        </a>
+        <section class="home">
+            <a href="./index.php"><h1>S<span class="glow">H</span>YNH<span class="glow">OO</span>K</h1></a>
+        </section>
+    </header>
+    <style>
+        *, ::after, ::before {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+a{
+    text-decoration: none;
+}
 
 body {
-    background-color: #C9CBA3;
+    background-color: #B8B8FF   ;
     font-family: Lato,Helvetica,sans-serif;
+    overflow-x: hidden;
 }
-
-
-.home {
-    display: flex;
-    justify-content: center;
-    align-content: center;
+        
+    header{
+    position: sticky;
+    width: 100vw;
+    height: 140px;
+    background-color: #B8B8FF   ;
     /* background-color: red; */
-    height: 120px;
-
-}
-
-h1 {
+    border-bottom: #FEFAE0 solid 1px;
+   
+    }
+        .home h1 {
     /* background-color: red; */
     height: 90px;
     font-family: Rubik Glitch;
@@ -34,11 +59,11 @@ h1 {
     /* animation: animate 8s linear infinite; */
     line-height: 0.70em;
     filter: brightness();
-    animation: slowGlow 7s linear infinite;
+    animation: slowGlow 3s linear infinite;
     
 }
 
-h1 span.glow {
+.home h1 span.glow {
     animation: animate 8s linear infinite;
     text-shadow: none;
 }
@@ -47,7 +72,7 @@ h1 span.glow {
 .nav-toggler {
     position: fixed;
     z-index: 10;
-    top: 30px;
+    top: 40px;
     right: 30px;
     height: 50px;
     width: 50px;
@@ -60,12 +85,25 @@ h1 span.glow {
     background: transparent;
 }
 
+.panier{
+    position: fixed;
+    top: 15px;
+    height: 40px;
+    width: 40px;
+    right: 105px;
+    transition: 0.3s;
+}
+.panier:hover{
+    animation: panier_wow 3s;
+    transition: 0.3s;
+}
+
 .line   {
     position: absolute;
     display: block;
     height: 2px;
     width: 100%;
-    background: #D4A373;
+    background: #FEFAE0;
     transition: transform 0.3s ease-out, opacity 0.1s ease-out;
 }
 
@@ -78,6 +116,7 @@ h1 span.glow {
 
 .nav-toggler.active .l1 {
     transform: translateY(0px) rotate(135deg);
+    background: #B8B8FF;
 
 }
 
@@ -87,7 +126,7 @@ h1 span.glow {
 
 .nav-toggler.active .l3 {
     transform: translateY(0px) rotate(-135deg);
-
+    background: #B8B8FF;
 }
 
 nav{
@@ -104,7 +143,7 @@ nav{
     transform: translateY(-100%);
     transition: transform 0.3s cubic-bezier(0,.02,.32,1);
     text-shadow: 0 0 5px white;
-    z-index: 2;
+    z-index: 5;
 }
 
 nav.active {
@@ -119,24 +158,6 @@ nav a{
     margin: 10px 0;
     text-decoration: none;
 }
-
-
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.carousel {
-    display: flex;
-    height: 40vh;
-    background-color: red;
-    width: 30vw;
-
-}
-
-
-
 @keyframes slowGlow 
 {
     0%, 40%,80%
@@ -172,3 +193,15 @@ main {
 }
 
 
+@keyframes panier_wow
+{
+    10%
+    {
+        transform: rotate(10deg);
+    }
+    30%
+    {
+        transform: rotate(-20deg);
+    }
+}
+    </style>
